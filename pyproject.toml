@@ -1,0 +1,44 @@
+[project]
+name = "pydungeonmud"
+description = "A python based MUD in a fantasy setting inspired by Hackmud."
+dynamic = ["version"]
+requires-python = ">=3.10"
+authors = [
+    {name = "TJ Padilin", email="tj.pyro@gmail.com"},
+]
+readme = "README.md"
+keywords = ["game"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment :: Role-Playing",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Topic :: Games/Entertainment :: Multi-User Dungeons (MUD)",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Repository = "https://github.com/padilin/pydungeonmud.git"
+Issues = "https://github.com/padilin/pydungeonmud/issues"
+
+[tool.black]
+line-length = 120
+target-version = ['py310', 'py311', 'py312']
+
+[tool.pytest.ini_options]
+minversion = 8.0
+addopts = "-rA -v --cov pydm --cov-report html"
+testpaths = ["tests"]
+required_plugins = ["pytest-cov"]
+
+[tool.coverage.run]
+source = ["pydm/"]
+branch = true
+command_line = "html"
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+skip_empty = true
